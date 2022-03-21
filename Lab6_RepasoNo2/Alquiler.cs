@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Windows.Forms; /// para usar evento keypress
 namespace Lab6_RepasoNo2
 {
     internal class Alquiler
@@ -16,6 +12,5 @@ namespace Lab6_RepasoNo2
         public decimal KmRecorridos { get; set; }
         public decimal PrecioxKm { get; set; }
         public decimal Total { get; set; }
-
     }
 }

@@ -59,7 +59,7 @@ namespace Lab6_RepasoNo2
                 dato.PrecioxKm = decimal.Parse(partes[6]);
                 dato.Total = decimal.Parse(partes[7]);
 
-                alquileres.Add(dato);
+                alquileres.Add(dato);   
             }
             reader.Close();
         }
@@ -116,14 +116,14 @@ namespace Lab6_RepasoNo2
         {
             Alquiler al = new Alquiler();
             al.Nit = comboBoxNit.Text;
-            al.Nombre = ((Cliente)comboBoxNit.SelectedValue).Nombre;
+            al.Nombre = ((Cliente)comboBoxNit.SelectedValue).Nombre; //casting
             al.Placa = comboBoxPlaca.Text;
             al.FechaAlquiler = dateTimePickerAlquiler.Value;
             al.FechaDevolucion = dateTimePickerDevolucion.Value;
-            al.KmRecorridos = numericUpDownKmRecorridos.Value;
+            al.KmRecorridos = decimal.Parse(textBoxKmRecorridos.Text);
             al.PrecioxKm = ((Vehiculo)comboBoxPlaca.SelectedValue).PrecioxKm;
 
-            //al.Total = 
+            al.Total = decimal.Parse(textBoxKmRecorridos.Text) * ((Vehiculo)comboBoxPlaca.SelectedValue).PrecioxKm;
 
             alquileres.Add(al);
 
@@ -145,6 +145,27 @@ namespace Lab6_RepasoNo2
             Form clientes = new Clientes();
             clientes.Show();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int mayor = Convert.ToInt32(alquileres.Max(x => x.KmRecorridos));
+
+            labelMayorRecorrido.Text = "El mayor recorrido fue de " + mayor.ToString();
+        }
+
+        private void textBoxKmRecorridos_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBoxKmRecorridos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("ERROR! solo se permiten datos de tipo numericos");
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

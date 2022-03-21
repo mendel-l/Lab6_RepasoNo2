@@ -38,13 +38,14 @@
             this.comboBoxNit = new System.Windows.Forms.ComboBox();
             this.comboBoxPlaca = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDevolucion = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDownKmRecorridos = new System.Windows.Forms.NumericUpDown();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonReturn = new System.Windows.Forms.Button();
             this.buttonNextForm = new System.Windows.Forms.Button();
             this.dateTimePickerAlquiler = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.labelMayorRecorrido = new System.Windows.Forms.Label();
+            this.textBoxKmRecorridos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKmRecorridos)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -110,7 +111,7 @@
             // dataGridViewResultado
             // 
             this.dataGridViewResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResultado.Location = new System.Drawing.Point(83, 199);
+            this.dataGridViewResultado.Location = new System.Drawing.Point(80, 177);
             this.dataGridViewResultado.Name = "dataGridViewResultado";
             this.dataGridViewResultado.Size = new System.Drawing.Size(321, 150);
             this.dataGridViewResultado.TabIndex = 33;
@@ -141,14 +142,6 @@
             this.dateTimePickerDevolucion.Name = "dateTimePickerDevolucion";
             this.dateTimePickerDevolucion.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerDevolucion.TabIndex = 50;
-            // 
-            // numericUpDownKmRecorridos
-            // 
-            this.numericUpDownKmRecorridos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownKmRecorridos.Location = new System.Drawing.Point(176, 137);
-            this.numericUpDownKmRecorridos.Name = "numericUpDownKmRecorridos";
-            this.numericUpDownKmRecorridos.Size = new System.Drawing.Size(160, 22);
-            this.numericUpDownKmRecorridos.TabIndex = 54;
             // 
             // buttonExit
             // 
@@ -189,16 +182,48 @@
             this.dateTimePickerAlquiler.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerAlquiler.TabIndex = 55;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(46, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 50);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "calcular Recorrido Mayor";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // labelMayorRecorrido
+            // 
+            this.labelMayorRecorrido.AutoSize = true;
+            this.labelMayorRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMayorRecorrido.Location = new System.Drawing.Point(211, 368);
+            this.labelMayorRecorrido.Name = "labelMayorRecorrido";
+            this.labelMayorRecorrido.Size = new System.Drawing.Size(19, 16);
+            this.labelMayorRecorrido.TabIndex = 62;
+            this.labelMayorRecorrido.Text = "...";
+            // 
+            // textBoxKmRecorridos
+            // 
+            this.textBoxKmRecorridos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKmRecorridos.Location = new System.Drawing.Point(176, 136);
+            this.textBoxKmRecorridos.Name = "textBoxKmRecorridos";
+            this.textBoxKmRecorridos.Size = new System.Drawing.Size(160, 22);
+            this.textBoxKmRecorridos.TabIndex = 63;
+            this.textBoxKmRecorridos.TextChanged += new System.EventHandler(this.textBoxKmRecorridos_TextChanged);
+            this.textBoxKmRecorridos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxKmRecorridos_KeyPress);
+            // 
             // Alquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.textBoxKmRecorridos);
+            this.Controls.Add(this.labelMayorRecorrido);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonNextForm);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.dateTimePickerAlquiler);
-            this.Controls.Add(this.numericUpDownKmRecorridos);
             this.Controls.Add(this.dateTimePickerDevolucion);
             this.Controls.Add(this.comboBoxPlaca);
             this.Controls.Add(this.comboBoxNit);
@@ -213,7 +238,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alquileres";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKmRecorridos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,10 +255,12 @@
         private System.Windows.Forms.ComboBox comboBoxNit;
         private System.Windows.Forms.ComboBox comboBoxPlaca;
         private System.Windows.Forms.DateTimePicker dateTimePickerDevolucion;
-        private System.Windows.Forms.NumericUpDown numericUpDownKmRecorridos;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonReturn;
         private System.Windows.Forms.Button buttonNextForm;
         private System.Windows.Forms.DateTimePicker dateTimePickerAlquiler;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelMayorRecorrido;
+        private System.Windows.Forms.TextBox textBoxKmRecorridos;
     }
 }

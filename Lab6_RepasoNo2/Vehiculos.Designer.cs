@@ -157,7 +157,7 @@
             this.comboBoxMarca.Items.AddRange(new object[] {
             "Audi",
             "BMW",
-            "Chevrolet\t",
+            "Chevrolet",
             "Ferrari",
             "Ford",
             "Honda",
